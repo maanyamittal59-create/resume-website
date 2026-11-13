@@ -1,0 +1,253 @@
+/* ---------- THE PALETTE: change colors here only ---------- */
+:root {
+  --bg: #FED9B7;       /* peach: page background */
+  --ink: #0F3C42;      /* dark teal: text, nav, borders */
+  --accent1: #F07167;  /* coral */
+  --accent2: #00AFB9;  /* teal */
+  --accent3: #F07167;  /* coral */
+}
+
+/* ---------- Basics ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Redaction 10', serif;
+  font-size: 24px;
+  line-height: 1.7;
+  background-color: var(--bg);
+  color: var(--ink);
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'BBH Bogle', sans-serif;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 56px;
+  margin: 0 0 30px;
+}
+
+/* ---------- Navigation ---------- */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: var(--ink);
+  z-index: 10;
+}
+
+nav a {
+  display: inline-block;
+  padding: 18px 24px 15px;
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 3px solid transparent;
+  transition: 0.2s;
+}
+
+nav a:hover {
+  color: var(--accent2);
+  border-bottom-color: var(--accent2);
+}
+
+/* ---------- Every section is one full "page" ---------- */
+.page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 120px 10% 80px;
+}
+
+#about     { background-color: var(--accent2); }
+#education { background-color: var(--bg); }
+#skills    { background-color: var(--accent1); }
+#contact   { background-color: var(--ink); color: var(--bg); }
+
+/* ---------- Front page ---------- */
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 140px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.location {
+  font-size: 26px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+h1 {
+  font-size: 100px;
+  line-height: 1.05;
+  margin: 10px 0 20px;
+}
+
+.tagline {
+  font-size: 30px;
+  max-width: 800px;
+  margin: 0;
+}
+
+/* ---------- Front page graphics (shapes) ---------- */
+.shape {
+  position: absolute;
+  border: 4px solid var(--ink);
+}
+
+.circle-big {
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background-color: var(--accent2);
+  right: 6%;
+  top: 20%;
+}
+
+.half-circle {
+  width: 240px;
+  height: 120px;
+  border-radius: 120px 120px 0 0;
+  background-color: var(--accent1);
+  right: 20%;
+  top: 14%;
+}
+
+.square {
+  width: 130px;
+  height: 130px;
+  background-color: var(--accent1);
+  right: 4%;
+  bottom: 20%;
+  transform: rotate(15deg);
+}
+
+.pill {
+  width: 220px;
+  height: 70px;
+  border-radius: 50px;
+  background-color: var(--ink);
+  right: 18%;
+  bottom: 24%;
+}
+
+
+/* ---------- Scrolling ticker ---------- */
+.ticker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--ink);
+  color: var(--bg);
+  overflow: hidden;
+  padding: 14px 0;
+  font-size: 22px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 25s linear infinite;
+}
+
+.ticker-track span {
+  white-space: nowrap;
+  padding-right: 40px;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---------- Education cards ---------- */
+#education ul {
+  list-style: none;
+  padding: 0;
+}
+
+#education li {
+  background-color: var(--accent1);
+  border: 3px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+  padding: 20px 28px;
+  margin-bottom: 30px;
+}
+
+/* ---------- Skills & Experience cards ---------- */
+.skill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.skill-card {
+  width: calc(50% - 14px);
+  box-sizing: border-box;
+  background-color: var(--bg);
+  border: 3px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+  padding: 24px 28px;
+  transition: 0.2s;
+}
+
+.skill-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 var(--ink);
+}
+
+.skill-card h3 {
+  font-size: 26px;
+  margin: 0 0 10px;
+}
+
+.skill-card p {
+  font-size: 22px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---------- Contact ---------- */
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-list li {
+  margin-bottom: 20px;
+}
+
+#contact a {
+  color: var(--accent2);
+}
+
+#contact a:hover {
+  color: var(--accent1);
+}
+
+/* ---------- Smaller screens ---------- */
+@media (max-width: 1000px) {
+  .shape { display: none; }
+  h1 { font-size: 60px; }
+  .skill-card { width: 100%; }
+}
